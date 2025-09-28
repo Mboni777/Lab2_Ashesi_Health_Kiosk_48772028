@@ -168,16 +168,25 @@ else if (metricChoice == 3) {
 String displayCode = shiftedFirstLetter + lastTwoIDChars + "-" + metricValue;
 System.out.println("Display Code: " +  displayCode );
 
+// Task 5: // Task 5: Service Summary
 
-
-
-
-
-
-
-
-
-
+// Printing the summary of the actions performed based on the service code choosen
+switch (serviceCode) {
+    case 'P':
+        System.out.println("Summary: PHARMACY | ID=" + formedID + " | Code=" + displayCode);
+        break;
+    case 'L':
+        System.out.println("Summary: LAB | ID=" + formedID + " | Code=" + displayCode);
+        break;
+    case 'C':
+        System.out.println("Summary: COUNSELING | ID=" + formedID + " | Code=" + displayCode);
+        break;
+    case 'T':
+        System.out.println("Summary: TRIAGE | ID=" + formedID + " | BMI=" + (Math.round(bmi*10)/10.0) + " | Code=" + displayCode);
+        break;
+    default:
+        System.out.println("Invalid service code Entered");
+}
 
 
    }
