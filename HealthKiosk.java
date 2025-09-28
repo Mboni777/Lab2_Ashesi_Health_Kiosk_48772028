@@ -4,6 +4,11 @@ public class HealthKiosk {
     public static void main(String[] args) {
         // creating a scanner object
         Scanner scanner = new Scanner(System.in);
+        
+        
+        double bmi = 0;        
+        int tablets = 0;       
+        double x = 0;   
 
         // printing a welcome message
         System.out.println("Welcome to the Ashesi Health Kiosk!");
@@ -43,7 +48,7 @@ if (metricChoice == 1) {
     System.out.print("Enter height  (m): ");
     double height = scanner.nextDouble();
 
-    double bmi = weight / (height * height);
+     bmi = weight / (height * height);
     // Rounding BMI to one decimal place
      double bmiRounded = Math.round(bmi * 10) / 10.0; 
 
@@ -67,7 +72,7 @@ else if (metricChoice == 2) {
     //Option B, Dosage round-up
     System.out.print("Enter required dosage in mg: ");
     double dosage = scanner.nextDouble();
-    int tablets = (int) Math.ceil(dosage / 250.0);
+    tablets = (int) Math.ceil(dosage / 250.0);
     System.out.println("Tablets needed: " + tablets);
 
 } 
@@ -78,7 +83,7 @@ else if (metricChoice == 3) {
     double angleDegrees = scanner.nextDouble();
 
     // x is the angle after converting to radians
-    double x = Math.toRadians(angleDegrees);
+    x = Math.toRadians(angleDegrees);
 
     double sinValue = Math.sin(x);
     double cosValue = Math.cos(x);
@@ -126,6 +131,48 @@ else if (!(Character.isDigit(formedID.charAt(1)) && Character.isDigit(formedID.c
 else {
     System.out.println("ID OK");
 }
+System.out.println();
+
+
+// Task 4: Secure code Display
+System.out.print("Enter your first name: ");
+String firstName = scanner.next();
+
+// Getting the first letter of the first name and converting it to uppercase
+char firstNameInitialLetter = Character.toUpperCase(firstName.charAt(0));
+System.out.println("Base code = " + firstNameInitialLetter);
+
+// shifting the first letter by 2 positions
+char shiftedFirstLetter = (char) ('A' + (firstNameInitialLetter - 'A' + 2) % 26);
+System.out.println("Shifted letter of base code = " + shiftedFirstLetter);
+
+// Taking last two characters from the ID generated above
+String lastTwoIDChars = formedID.substring(formedID.length() - 2);
+System.out.println("Last two characters for ID generated are: " + lastTwoIDChars);
+
+// Let's get the metric value from Task 2
+int metricValue = 0;
+
+if (metricChoice == 1) {
+     metricValue = (int) Math.round(bmi);
+}
+else if (metricChoice == 2) {
+    // Because the tablets were already in int, there is no need for converting it
+    metricValue = tablets;
+}
+else if (metricChoice == 3) {
+    metricValue = (int) Math.round(Math.sin(x) * 100);
+}
+
+// Printing the code
+String displayCode = shiftedFirstLetter + lastTwoIDChars + "-" + metricValue;
+System.out.println("Display Code: " +  displayCode );
+
+
+
+
+
+
 
 
 
