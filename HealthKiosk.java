@@ -94,12 +94,46 @@ else if (metricChoice == 3) {
 else {
     System.out.println("Invalid metric choice");
 }
+// Task 3: ID Sanity Check
 
+// First of all, let's generate a random uppercase character
+char randomCharacter = (char) ('A' + Math.random() * 26);
 
+// Now, let's generate 4 random digits between 3 and 9 (inclusive)
 
+int digit1 = (int) (Math.random() * 7) + 3; 
+int digit2 = (int) (Math.random() * 7) + 3; 
+int digit3 = (int) (Math.random() * 7) + 3; 
+int digit4 = (int) (Math.random() * 7) + 3; 
 
+// Let's combine them to match the correct ID format and also print it out
+String formedID = "" + randomCharacter + digit1 + digit2 + digit3 + digit4;
+System.out.println("Generated ID: " + formedID);
 
+// Checking if the ID meets the criteria
 
-
+// Checking if the length is exactly 5 characters
+if (formedID.length() != 5) {
+    System.out.println("Invalid ID");
+}
+else if (!Character.isUpperCase(formedID.charAt(0))) {
+    System.out.println("Invalid ID, First character must be an uppercase letter");
     }
+    // Checking if the last 4 characters are digits
+else if (!(Character.isDigit(formedID.charAt(1)) && Character.isDigit(formedID.charAt(2)) &&
+      Character.isDigit(formedID.charAt(3)) && Character.isDigit(formedID.charAt(4)))) {
+    System.out.println("Invalid: last 4 must be digits");}
+else {
+    System.out.println("ID OK");
+}
+
+
+
+
+
+
+
+   }
+
+
 }
