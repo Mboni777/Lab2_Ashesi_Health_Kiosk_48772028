@@ -5,7 +5,7 @@ public class HealthKiosk {
         // creating a scanner object
         Scanner scanner = new Scanner(System.in);
         
-        
+        // declaration of variables that will be used in more than one task
         double bmi = 0;        
         int tablets = 0;       
         double x = 0;   
@@ -53,13 +53,13 @@ if (metricChoice == 1) {
      double bmiRounded = Math.round(bmi * 10) / 10.0; 
 
     System.out.print("BMI: " + bmiRounded + "  Category: ");
-    if (bmi < 18.5) {
+    if (bmiRounded < 18.5) {
         System.out.println("Underweight");
     } 
-    else if (bmi < 25) {
+    else if (bmiRounded < 25) {
         System.out.println("Normal");
     } 
-    else if (bmi < 30) {
+    else if (bmiRounded < 30) {
         System.out.println("Overweight");
     } 
     else {
